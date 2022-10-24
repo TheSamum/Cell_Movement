@@ -13,6 +13,7 @@ class VideoPlayer(QMainWindow):
         super().__init__()
 
         self.mas = []
+        self.short_mas = []
 
         self.a = 0
 
@@ -101,7 +102,10 @@ class VideoPlayer(QMainWindow):
         self.marker_label.move(event.pos() - self.marker_label.rect().center())
         self.marker_label.show()
         cord = event.pos()
-        self.mas.append((cord.x(), cord.y(), self.mediaPlayer.position()))
+        self.short_mas.append((cord.x(), cord.y(), self.mediaPlayer.position()))
+        if len(self.short_mas) == 5:
+                self.mas.append(self.short_mas)
+                self.short_mas = []
         self.mediaPlayer.setPosition(self.mediaPlayer.position() + 167)
 
     def openFile(self):
