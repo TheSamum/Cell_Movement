@@ -106,7 +106,7 @@ class VideoPlayer(QMainWindow):
         if len(self.short_mas) == 5:
                 self.mas.append(self.short_mas)
                 self.short_mas = []
-        self.mediaPlayer.setPosition(self.mediaPlayer.position() + 167)
+                self.mediaPlayer.setPosition(self.mediaPlayer.position() + 167)
 
     def openFile(self):
         self.fileName, _ = QFileDialog.getOpenFileName(self, "Open Movie",
